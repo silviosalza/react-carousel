@@ -1,0 +1,9 @@
+/* Aggiungi stili per la classe active */
+.active {
+    display: block;
+   
+  }
+  .notActive{
+    display: none;
+  }
+  
