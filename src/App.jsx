@@ -7,13 +7,17 @@ function App() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleNextCard = () => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % posts.length);
+    setActiveIndex((prevIndex) => {
+      const nextIndex = prevIndex + 1;
+      return nextIndex < posts.length ? nextIndex : 0;
+    });
   };
 
   const handlePrevCard = () => {
-    setActiveIndex((prevIndex) =>
-      prevIndex === 0 ? posts.length - 1 : prevIndex - 1
-    );
+    setActiveIndex((prevIndex) => {
+      const prevIndexCandidate = prevIndex - 1;
+      return prevIndexCandidate >= 0 ? prevIndexCandidate : posts.length - 1;
+    });
   };
 
   return (
